@@ -1,0 +1,145 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/ActionBinding/ActionBindingMenu.cs" type="Script" id=1]
+[ext_resource path="res://Font/generic.fnt" type="BitmapFont" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 0.0
+content_margin_bottom = 6.0
+bg_color = Color( 0.8, 0.8, 0.8, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 0.0
+content_margin_bottom = 6.0
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 6.0
+bg_color = Color( 1, 1, 0, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 6.0
+bg_color = Color( 0.2, 0.2, 0.2, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 0.0
+content_margin_bottom = 6.0
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[node name="ActionBindingMenu" type="Control"]
+script = ExtResource( 1 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_right = 240.0
+margin_bottom = 320.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 224.0
+margin_bottom = 60.0
+custom_constants/separation = 8
+
+[node name="DeadzoneContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_right = 224.0
+margin_bottom = 36.0
+
+[node name="DeadzoneLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/DeadzoneContainer"]
+margin_right = 224.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 224, 16 )
+custom_fonts/normal_font = ExtResource( 2 )
+text = "Deadzone: 0.5"
+scroll_active = false
+
+[node name="Deadzone" type="HSlider" parent="ScrollContainer/VBoxContainer/DeadzoneContainer"]
+margin_top = 20.0
+margin_right = 224.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 224, 16 )
+max_value = 1.0
+step = 0.1
+value = 0.5
+tick_count = 11
+ticks_on_borders = true
+
+[node name="LastButtonsContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 224.0
+margin_bottom = 60.0
+custom_constants/separation = 8
+
+[node name="Test" type="Button" parent="ScrollContainer/VBoxContainer/LastButtonsContainer"]
+margin_right = 48.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 2 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Test"
+
+[node name="ResetToDefaultControls" type="Button" parent="ScrollContainer/VBoxContainer/LastButtonsContainer"]
+margin_left = 56.0
+margin_right = 128.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 2 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Default"
+
+[node name="ReturnToTitle" type="Button" parent="ScrollContainer/VBoxContainer/LastButtonsContainer"]
+margin_left = 136.0
+margin_right = 192.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 2 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Title"
+
+[connection signal="drag_ended" from="ScrollContainer/VBoxContainer/DeadzoneContainer/Deadzone" to="." method="SetDeadzone"]
+[connection signal="value_changed" from="ScrollContainer/VBoxContainer/DeadzoneContainer/Deadzone" to="." method="SetDeadzoneText"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/LastButtonsContainer/Test" to="." method="GoToTest"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/LastButtonsContainer/ResetToDefaultControls" to="." method="ResetBinding"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/LastButtonsContainer/ReturnToTitle" to="." method="ExitToTitle"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Script/BulletManager.cs" type="Script" id=1]
+
+[node name="BulletManager" type="Node2D"]
+process_priority = -8
+z_index = 99
+script = ExtResource( 1 )

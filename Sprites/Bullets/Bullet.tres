@@ -1,0 +1,524 @@
+[gd_resource type="SpriteFrames" load_steps=170 format=2]
+
+[ext_resource path="res://Sprites/Bullets/yellow/yellowmissile.tres" type="Texture" id=1]
+[ext_resource path="res://Sprites/Bullets/yellow/yellowrugby0.tres" type="Texture" id=2]
+[ext_resource path="res://Sprites/Bullets/yellow/yellowrugby1.tres" type="Texture" id=3]
+[ext_resource path="res://Sprites/Bullets/yellow/yellowrugby2.tres" type="Texture" id=4]
+[ext_resource path="res://Sprites/Bullets/yellow/yellowrugby3.tres" type="Texture" id=5]
+[ext_resource path="res://Sprites/Bullets/blue/bean0.tres" type="Texture" id=6]
+[ext_resource path="res://Sprites/Bullets/blue/bean1.tres" type="Texture" id=7]
+[ext_resource path="res://Sprites/Bullets/blue/bean2.tres" type="Texture" id=8]
+[ext_resource path="res://Sprites/Bullets/blue/bean3.tres" type="Texture" id=9]
+[ext_resource path="res://Sprites/Bullets/blue/counter8px0.tres" type="Texture" id=10]
+[ext_resource path="res://Sprites/Bullets/blue/counter8px1.tres" type="Texture" id=11]
+[ext_resource path="res://Sprites/Bullets/blue/counter8px2.tres" type="Texture" id=12]
+[ext_resource path="res://Sprites/Bullets/blue/counter8px3.tres" type="Texture" id=13]
+[ext_resource path="res://Sprites/Bullets/blue/counter12px0.tres" type="Texture" id=14]
+[ext_resource path="res://Sprites/Bullets/blue/counter12px1.tres" type="Texture" id=15]
+[ext_resource path="res://Sprites/Bullets/blue/counter12px2.tres" type="Texture" id=16]
+[ext_resource path="res://Sprites/Bullets/blue/counter12px3.tres" type="Texture" id=17]
+[ext_resource path="res://Sprites/Bullets/blue/counter16px0.tres" type="Texture" id=18]
+[ext_resource path="res://Sprites/Bullets/blue/counter16px1.tres" type="Texture" id=19]
+[ext_resource path="res://Sprites/Bullets/blue/counter16px2.tres" type="Texture" id=20]
+[ext_resource path="res://Sprites/Bullets/blue/counter16px3.tres" type="Texture" id=21]
+[ext_resource path="res://Sprites/Bullets/blue/doublebeam.tres" type="Texture" id=22]
+[ext_resource path="res://Sprites/Bullets/blue/largerugby0.tres" type="Texture" id=23]
+[ext_resource path="res://Sprites/Bullets/blue/largerugby1.tres" type="Texture" id=24]
+[ext_resource path="res://Sprites/Bullets/blue/largerugby2.tres" type="Texture" id=25]
+[ext_resource path="res://Sprites/Bullets/blue/largerugby3.tres" type="Texture" id=26]
+[ext_resource path="res://Sprites/Bullets/blue/missile.tres" type="Texture" id=27]
+[ext_resource path="res://Sprites/Bullets/blue/needle.tres" type="Texture" id=28]
+[ext_resource path="res://Sprites/Bullets/blue/pulse.tres" type="Texture" id=29]
+[ext_resource path="res://Sprites/Bullets/blue/ring.tres" type="Texture" id=30]
+[ext_resource path="res://Sprites/Bullets/blue/singlebeam.tres" type="Texture" id=31]
+[ext_resource path="res://Sprites/Bullets/blue/spark0.tres" type="Texture" id=32]
+[ext_resource path="res://Sprites/Bullets/blue/spark1.tres" type="Texture" id=33]
+[ext_resource path="res://Sprites/Bullets/blue/strobe6px0.tres" type="Texture" id=34]
+[ext_resource path="res://Sprites/Bullets/blue/strobe6px1.tres" type="Texture" id=35]
+[ext_resource path="res://Sprites/Bullets/blue/strobe8px0.tres" type="Texture" id=36]
+[ext_resource path="res://Sprites/Bullets/blue/strobe8px1.tres" type="Texture" id=37]
+[ext_resource path="res://Sprites/Bullets/blue/strobe16px0.tres" type="Texture" id=38]
+[ext_resource path="res://Sprites/Bullets/blue/strobe16px1.tres" type="Texture" id=39]
+[ext_resource path="res://Sprites/Bullets/blue/strobe16px2.tres" type="Texture" id=40]
+[ext_resource path="res://Sprites/Bullets/blue/tjo0.tres" type="Texture" id=41]
+[ext_resource path="res://Sprites/Bullets/blue/tjo1.tres" type="Texture" id=42]
+[ext_resource path="res://Sprites/Bullets/blue/whirl0.tres" type="Texture" id=43]
+[ext_resource path="res://Sprites/Bullets/blue/whirl1.tres" type="Texture" id=44]
+[ext_resource path="res://Sprites/Bullets/blue/whirl2.tres" type="Texture" id=45]
+[ext_resource path="res://Sprites/Bullets/blue/whirl3.tres" type="Texture" id=46]
+[ext_resource path="res://Sprites/Bullets/red/bean0.tres" type="Texture" id=47]
+[ext_resource path="res://Sprites/Bullets/red/bean1.tres" type="Texture" id=48]
+[ext_resource path="res://Sprites/Bullets/red/bean2.tres" type="Texture" id=49]
+[ext_resource path="res://Sprites/Bullets/red/bean3.tres" type="Texture" id=50]
+[ext_resource path="res://Sprites/Bullets/red/counter8px0.tres" type="Texture" id=51]
+[ext_resource path="res://Sprites/Bullets/red/counter8px1.tres" type="Texture" id=52]
+[ext_resource path="res://Sprites/Bullets/red/counter8px2.tres" type="Texture" id=53]
+[ext_resource path="res://Sprites/Bullets/red/counter8px3.tres" type="Texture" id=54]
+[ext_resource path="res://Sprites/Bullets/red/counter12px0.tres" type="Texture" id=55]
+[ext_resource path="res://Sprites/Bullets/red/counter12px1.tres" type="Texture" id=56]
+[ext_resource path="res://Sprites/Bullets/red/counter12px2.tres" type="Texture" id=57]
+[ext_resource path="res://Sprites/Bullets/red/counter12px3.tres" type="Texture" id=58]
+[ext_resource path="res://Sprites/Bullets/red/counter16px0.tres" type="Texture" id=59]
+[ext_resource path="res://Sprites/Bullets/red/counter16px1.tres" type="Texture" id=60]
+[ext_resource path="res://Sprites/Bullets/red/counter16px2.tres" type="Texture" id=61]
+[ext_resource path="res://Sprites/Bullets/red/counter16px3.tres" type="Texture" id=62]
+[ext_resource path="res://Sprites/Bullets/red/doublebeam.tres" type="Texture" id=63]
+[ext_resource path="res://Sprites/Bullets/red/largerugby0.tres" type="Texture" id=64]
+[ext_resource path="res://Sprites/Bullets/red/largerugby1.tres" type="Texture" id=65]
+[ext_resource path="res://Sprites/Bullets/red/largerugby2.tres" type="Texture" id=66]
+[ext_resource path="res://Sprites/Bullets/red/largerugby3.tres" type="Texture" id=67]
+[ext_resource path="res://Sprites/Bullets/red/missile.tres" type="Texture" id=68]
+[ext_resource path="res://Sprites/Bullets/red/needle.tres" type="Texture" id=69]
+[ext_resource path="res://Sprites/Bullets/red/pulse.tres" type="Texture" id=70]
+[ext_resource path="res://Sprites/Bullets/red/ring.tres" type="Texture" id=71]
+[ext_resource path="res://Sprites/Bullets/red/singlebeam.tres" type="Texture" id=72]
+[ext_resource path="res://Sprites/Bullets/red/spark0.tres" type="Texture" id=73]
+[ext_resource path="res://Sprites/Bullets/red/spark1.tres" type="Texture" id=74]
+[ext_resource path="res://Sprites/Bullets/red/strobe6px0.tres" type="Texture" id=75]
+[ext_resource path="res://Sprites/Bullets/red/strobe6px1.tres" type="Texture" id=76]
+[ext_resource path="res://Sprites/Bullets/red/strobe8px0.tres" type="Texture" id=77]
+[ext_resource path="res://Sprites/Bullets/red/strobe8px1.tres" type="Texture" id=78]
+[ext_resource path="res://Sprites/Bullets/red/strobe16px0.tres" type="Texture" id=79]
+[ext_resource path="res://Sprites/Bullets/red/strobe16px1.tres" type="Texture" id=80]
+[ext_resource path="res://Sprites/Bullets/red/strobe16px2.tres" type="Texture" id=81]
+[ext_resource path="res://Sprites/Bullets/red/tjo0.tres" type="Texture" id=82]
+[ext_resource path="res://Sprites/Bullets/red/tjo1.tres" type="Texture" id=83]
+[ext_resource path="res://Sprites/Bullets/red/whirl0.tres" type="Texture" id=84]
+[ext_resource path="res://Sprites/Bullets/red/whirl1.tres" type="Texture" id=85]
+[ext_resource path="res://Sprites/Bullets/red/whirl2.tres" type="Texture" id=86]
+[ext_resource path="res://Sprites/Bullets/red/whirl3.tres" type="Texture" id=87]
+[ext_resource path="res://Sprites/Bullets/purple/bean0.tres" type="Texture" id=88]
+[ext_resource path="res://Sprites/Bullets/purple/bean1.tres" type="Texture" id=89]
+[ext_resource path="res://Sprites/Bullets/purple/bean2.tres" type="Texture" id=90]
+[ext_resource path="res://Sprites/Bullets/purple/bean3.tres" type="Texture" id=91]
+[ext_resource path="res://Sprites/Bullets/purple/counter8px0.tres" type="Texture" id=92]
+[ext_resource path="res://Sprites/Bullets/purple/counter8px1.tres" type="Texture" id=93]
+[ext_resource path="res://Sprites/Bullets/purple/counter8px2.tres" type="Texture" id=94]
+[ext_resource path="res://Sprites/Bullets/purple/counter8px3.tres" type="Texture" id=95]
+[ext_resource path="res://Sprites/Bullets/purple/counter12px0.tres" type="Texture" id=96]
+[ext_resource path="res://Sprites/Bullets/purple/counter12px1.tres" type="Texture" id=97]
+[ext_resource path="res://Sprites/Bullets/purple/counter12px2.tres" type="Texture" id=98]
+[ext_resource path="res://Sprites/Bullets/purple/counter12px3.tres" type="Texture" id=99]
+[ext_resource path="res://Sprites/Bullets/purple/counter16px0.tres" type="Texture" id=100]
+[ext_resource path="res://Sprites/Bullets/purple/counter16px1.tres" type="Texture" id=101]
+[ext_resource path="res://Sprites/Bullets/purple/counter16px2.tres" type="Texture" id=102]
+[ext_resource path="res://Sprites/Bullets/purple/counter16px3.tres" type="Texture" id=103]
+[ext_resource path="res://Sprites/Bullets/purple/doublebeam.tres" type="Texture" id=104]
+[ext_resource path="res://Sprites/Bullets/purple/largerugby0.tres" type="Texture" id=105]
+[ext_resource path="res://Sprites/Bullets/purple/largerugby1.tres" type="Texture" id=106]
+[ext_resource path="res://Sprites/Bullets/purple/largerugby2.tres" type="Texture" id=107]
+[ext_resource path="res://Sprites/Bullets/purple/largerugby3.tres" type="Texture" id=108]
+[ext_resource path="res://Sprites/Bullets/purple/missile.tres" type="Texture" id=109]
+[ext_resource path="res://Sprites/Bullets/purple/needle.tres" type="Texture" id=110]
+[ext_resource path="res://Sprites/Bullets/purple/pulse.tres" type="Texture" id=111]
+[ext_resource path="res://Sprites/Bullets/purple/ring.tres" type="Texture" id=112]
+[ext_resource path="res://Sprites/Bullets/purple/singlebeam.tres" type="Texture" id=113]
+[ext_resource path="res://Sprites/Bullets/purple/spark0.tres" type="Texture" id=114]
+[ext_resource path="res://Sprites/Bullets/purple/spark1.tres" type="Texture" id=115]
+[ext_resource path="res://Sprites/Bullets/purple/strobe6px0.tres" type="Texture" id=116]
+[ext_resource path="res://Sprites/Bullets/purple/strobe6px1.tres" type="Texture" id=117]
+[ext_resource path="res://Sprites/Bullets/purple/strobe8px0.tres" type="Texture" id=118]
+[ext_resource path="res://Sprites/Bullets/purple/strobe8px1.tres" type="Texture" id=119]
+[ext_resource path="res://Sprites/Bullets/purple/strobe16px0.tres" type="Texture" id=120]
+[ext_resource path="res://Sprites/Bullets/purple/strobe16px1.tres" type="Texture" id=121]
+[ext_resource path="res://Sprites/Bullets/purple/strobe16px2.tres" type="Texture" id=122]
+[ext_resource path="res://Sprites/Bullets/purple/tjo0.tres" type="Texture" id=123]
+[ext_resource path="res://Sprites/Bullets/purple/tjo1.tres" type="Texture" id=124]
+[ext_resource path="res://Sprites/Bullets/purple/whirl0.tres" type="Texture" id=125]
+[ext_resource path="res://Sprites/Bullets/purple/whirl1.tres" type="Texture" id=126]
+[ext_resource path="res://Sprites/Bullets/purple/whirl2.tres" type="Texture" id=127]
+[ext_resource path="res://Sprites/Bullets/purple/whirl3.tres" type="Texture" id=128]
+[ext_resource path="res://Sprites/Bullets/pink/bean0.tres" type="Texture" id=129]
+[ext_resource path="res://Sprites/Bullets/pink/bean1.tres" type="Texture" id=130]
+[ext_resource path="res://Sprites/Bullets/pink/bean2.tres" type="Texture" id=131]
+[ext_resource path="res://Sprites/Bullets/pink/bean3.tres" type="Texture" id=132]
+[ext_resource path="res://Sprites/Bullets/pink/counter8px0.tres" type="Texture" id=133]
+[ext_resource path="res://Sprites/Bullets/pink/counter8px1.tres" type="Texture" id=134]
+[ext_resource path="res://Sprites/Bullets/pink/counter8px2.tres" type="Texture" id=135]
+[ext_resource path="res://Sprites/Bullets/pink/counter8px3.tres" type="Texture" id=136]
+[ext_resource path="res://Sprites/Bullets/pink/counter12px0.tres" type="Texture" id=137]
+[ext_resource path="res://Sprites/Bullets/pink/counter12px1.tres" type="Texture" id=138]
+[ext_resource path="res://Sprites/Bullets/pink/counter12px2.tres" type="Texture" id=139]
+[ext_resource path="res://Sprites/Bullets/pink/counter12px3.tres" type="Texture" id=140]
+[ext_resource path="res://Sprites/Bullets/pink/counter16px0.tres" type="Texture" id=141]
+[ext_resource path="res://Sprites/Bullets/pink/counter16px1.tres" type="Texture" id=142]
+[ext_resource path="res://Sprites/Bullets/pink/counter16px2.tres" type="Texture" id=143]
+[ext_resource path="res://Sprites/Bullets/pink/counter16px3.tres" type="Texture" id=144]
+[ext_resource path="res://Sprites/Bullets/pink/doublebeam.tres" type="Texture" id=145]
+[ext_resource path="res://Sprites/Bullets/pink/largerugby0.tres" type="Texture" id=146]
+[ext_resource path="res://Sprites/Bullets/pink/largerugby1.tres" type="Texture" id=147]
+[ext_resource path="res://Sprites/Bullets/pink/largerugby2.tres" type="Texture" id=148]
+[ext_resource path="res://Sprites/Bullets/pink/largerugby3.tres" type="Texture" id=149]
+[ext_resource path="res://Sprites/Bullets/pink/missile.tres" type="Texture" id=150]
+[ext_resource path="res://Sprites/Bullets/pink/needle.tres" type="Texture" id=151]
+[ext_resource path="res://Sprites/Bullets/pink/pulse.tres" type="Texture" id=152]
+[ext_resource path="res://Sprites/Bullets/pink/ring.tres" type="Texture" id=153]
+[ext_resource path="res://Sprites/Bullets/pink/singlebeam.tres" type="Texture" id=154]
+[ext_resource path="res://Sprites/Bullets/pink/spark0.tres" type="Texture" id=155]
+[ext_resource path="res://Sprites/Bullets/pink/spark1.tres" type="Texture" id=156]
+[ext_resource path="res://Sprites/Bullets/pink/strobe6px0.tres" type="Texture" id=157]
+[ext_resource path="res://Sprites/Bullets/pink/strobe6px1.tres" type="Texture" id=158]
+[ext_resource path="res://Sprites/Bullets/pink/strobe8px0.tres" type="Texture" id=159]
+[ext_resource path="res://Sprites/Bullets/pink/strobe8px1.tres" type="Texture" id=160]
+[ext_resource path="res://Sprites/Bullets/pink/strobe16px0.tres" type="Texture" id=161]
+[ext_resource path="res://Sprites/Bullets/pink/strobe16px1.tres" type="Texture" id=162]
+[ext_resource path="res://Sprites/Bullets/pink/strobe16px2.tres" type="Texture" id=163]
+[ext_resource path="res://Sprites/Bullets/pink/tjo0.tres" type="Texture" id=164]
+[ext_resource path="res://Sprites/Bullets/pink/tjo1.tres" type="Texture" id=165]
+[ext_resource path="res://Sprites/Bullets/pink/whirl0.tres" type="Texture" id=166]
+[ext_resource path="res://Sprites/Bullets/pink/whirl1.tres" type="Texture" id=167]
+[ext_resource path="res://Sprites/Bullets/pink/whirl2.tres" type="Texture" id=168]
+[ext_resource path="res://Sprites/Bullets/pink/whirl3.tres" type="Texture" id=169]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Blue_Bean",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "Blue_Counter12px",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "Blue_Counter16px",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "Blue_Counter8px",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "Blue_DoubleBeam",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "Blue_LargeRugby",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "Blue_Missile",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "Blue_Needle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ) ],
+"loop": true,
+"name": "Blue_Pulse",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "Blue_Ring",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 31 ) ],
+"loop": true,
+"name": "Blue_SingleBeam",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 41 ), ExtResource( 33 ), ExtResource( 41 ) ],
+"loop": true,
+"name": "Blue_Spark",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 39 ) ],
+"loop": true,
+"name": "Blue_Strobe16px",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "Blue_Strobe6px",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 36 ), ExtResource( 37 ) ],
+"loop": true,
+"name": "Blue_Strobe8px",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 41 ), ExtResource( 42 ) ],
+"loop": true,
+"name": "Blue_TJO",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ],
+"loop": true,
+"name": "Blue_Whirl",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 129 ), ExtResource( 130 ), ExtResource( 131 ), ExtResource( 132 ) ],
+"loop": true,
+"name": "Pink_Bean",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 137 ), ExtResource( 138 ), ExtResource( 139 ), ExtResource( 140 ) ],
+"loop": true,
+"name": "Pink_Counter12px",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 141 ), ExtResource( 142 ), ExtResource( 143 ), ExtResource( 144 ) ],
+"loop": true,
+"name": "Pink_Counter16px",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 133 ), ExtResource( 134 ), ExtResource( 135 ), ExtResource( 136 ) ],
+"loop": true,
+"name": "Pink_Counter8px",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 145 ) ],
+"loop": true,
+"name": "Pink_DoubleBeam",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 146 ), ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ) ],
+"loop": true,
+"name": "Pink_LargeRugby",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 150 ) ],
+"loop": true,
+"name": "Pink_Missile",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 151 ) ],
+"loop": true,
+"name": "Pink_Needle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 152 ) ],
+"loop": true,
+"name": "Pink_Pulse",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 153 ) ],
+"loop": true,
+"name": "Pink_Ring",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 154 ) ],
+"loop": true,
+"name": "Pink_SingleBeam",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 155 ), ExtResource( 164 ), ExtResource( 156 ), ExtResource( 164 ) ],
+"loop": true,
+"name": "Pink_Spark",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 161 ), ExtResource( 162 ), ExtResource( 163 ), ExtResource( 162 ) ],
+"loop": true,
+"name": "Pink_Strobe16px",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 157 ), ExtResource( 158 ) ],
+"loop": true,
+"name": "Pink_Strobe6px",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 159 ), ExtResource( 160 ) ],
+"loop": true,
+"name": "Pink_Strobe8px",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 164 ), ExtResource( 165 ) ],
+"loop": true,
+"name": "Pink_TJO",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 166 ), ExtResource( 167 ), ExtResource( 168 ), ExtResource( 169 ) ],
+"loop": true,
+"name": "Pink_Whirl",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ) ],
+"loop": true,
+"name": "Purple_Bean",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 96 ), ExtResource( 97 ), ExtResource( 98 ), ExtResource( 99 ) ],
+"loop": true,
+"name": "Purple_Counter12px",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 103 ) ],
+"loop": true,
+"name": "Purple_Counter16px",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ) ],
+"loop": true,
+"name": "Purple_Counter8px",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 104 ) ],
+"loop": true,
+"name": "Purple_DoubleBeam",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ) ],
+"loop": true,
+"name": "Purple_LargeRugby",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 109 ) ],
+"loop": true,
+"name": "Purple_Missile",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 110 ) ],
+"loop": true,
+"name": "Purple_Needle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 111 ) ],
+"loop": true,
+"name": "Purple_Pulse",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 112 ) ],
+"loop": true,
+"name": "Purple_Ring",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 113 ) ],
+"loop": true,
+"name": "Purple_SingleBeam",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 114 ), ExtResource( 123 ), ExtResource( 115 ), ExtResource( 123 ) ],
+"loop": true,
+"name": "Purple_Spark",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 120 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 121 ) ],
+"loop": true,
+"name": "Purple_Strobe16px",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 116 ), ExtResource( 117 ) ],
+"loop": true,
+"name": "Purple_Strobe6px",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 118 ), ExtResource( 119 ) ],
+"loop": true,
+"name": "Purple_Strobe8px",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 123 ), ExtResource( 124 ) ],
+"loop": true,
+"name": "Purple_TJO",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 125 ), ExtResource( 126 ), ExtResource( 127 ), ExtResource( 128 ) ],
+"loop": true,
+"name": "Purple_Whirl",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ],
+"loop": true,
+"name": "Red_Bean",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ) ],
+"loop": true,
+"name": "Red_Counter12px",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ) ],
+"loop": true,
+"name": "Red_Counter16px",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ) ],
+"loop": true,
+"name": "Red_Counter8px",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 63 ) ],
+"loop": true,
+"name": "Red_DoubleBeam",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ) ],
+"loop": true,
+"name": "Red_LargeRugby",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 68 ) ],
+"loop": true,
+"name": "Red_Missile",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 69 ) ],
+"loop": true,
+"name": "Red_Needle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 70 ) ],
+"loop": true,
+"name": "Red_Pulse",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 71 ) ],
+"loop": true,
+"name": "Red_Ring",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 72 ) ],
+"loop": true,
+"name": "Red_SingleBeam",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 73 ), ExtResource( 82 ), ExtResource( 74 ), ExtResource( 82 ) ],
+"loop": true,
+"name": "Red_Spark",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 80 ) ],
+"loop": true,
+"name": "Red_Strobe16px",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 75 ), ExtResource( 76 ) ],
+"loop": true,
+"name": "Red_Strobe6px",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 77 ), ExtResource( 78 ) ],
+"loop": true,
+"name": "Red_Strobe8px",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 82 ), ExtResource( 83 ) ],
+"loop": true,
+"name": "Red_TJO",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ) ],
+"loop": true,
+"name": "Red_Whirl",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Yellow_Missile",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Yellow_Rugby",
+"speed": 30.0
+} ]

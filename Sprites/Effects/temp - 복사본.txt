@@ -1,0 +1,35 @@
+[gd_resource type="SpriteFrames" load_steps=16 format=2]
+
+[ext_resource path="res://Sprites/Effects/blue/explosion0.tres" type="Texture" id=1]
+[ext_resource path="res://Sprites/Effects/blue/explosion1.tres" type="Texture" id=2]
+[ext_resource path="res://Sprites/Effects/blue/explosion2.tres" type="Texture" id=3]
+[ext_resource path="res://Sprites/Effects/blue/explosion3.tres" type="Texture" id=4]
+[ext_resource path="res://Sprites/Effects/blue/explosion4.tres" type="Texture" id=5]
+[ext_resource path="res://Sprites/Effects/blue/bigexplosion0.tres" type="Texture" id=6]
+[ext_resource path="res://Sprites/Effects/blue/bigexplosion1.tres" type="Texture" id=7]
+[ext_resource path="res://Sprites/Effects/blue/bigexplosion2.tres" type="Texture" id=8]
+[ext_resource path="res://Sprites/Effects/blue/bigexplosion3.tres" type="Texture" id=9]
+[ext_resource path="res://Sprites/Effects/blue/bigexplosion4.tres" type="Texture" id=10]
+[ext_resource path="res://Sprites/Effects/blue/exhaust0.tres" type="Texture" id=11]
+[ext_resource path="res://Sprites/Effects/blue/exhaust1.tres" type="Texture" id=12]
+[ext_resource path="res://Sprites/Effects/blue/exhaust2.tres" type="Texture" id=13]
+[ext_resource path="res://Sprites/Effects/blue/exhaust3.tres" type="Texture" id=14]
+[ext_resource path="res://Sprites/Effects/blue/exhaust4.tres" type="Texture" id=15]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Blue_BigExplosion",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 14 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "Blue_Exhaust",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Blue_Explosion",
+"speed": 20.0
+} ]

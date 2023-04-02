@@ -1,0 +1,239 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Font/16x8.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://Font/8x8.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://Font/16x16.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://Font/8x16.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://Script/valign.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/HUD/bombshud.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/HUD/liveshud.png" type="Texture" id=7]
+[ext_resource path="res://Script/HUD.cs" type="Script" id=8]
+[ext_resource path="res://Font/8x8_0.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/HUD/bosshud.png" type="Texture" id=10]
+[ext_resource path="res://Script/BossHPBar.cs" type="Script" id=11]
+
+[sub_resource type="BitmapFont" id=2]
+resource_name = "Arial"
+textures = [ ExtResource( 9 ) ]
+chars = PoolIntArray( 32, 0, 0, 0, 8, 8, 0, 0, 8, 48, 0, 40, 0, 8, 8, 0, 0, 8, 80, 0, 8, 8, 8, 8, 0, 0, 8, 96, 0, 104, 8, 8, 8, 0, 0, 8, 112, 0, 232, 8, 8, 8, 0, 0, 8, 49, 0, 48, 0, 8, 8, 0, 0, 8, 65, 0, 144, 0, 8, 8, 0, 0, 8, 81, 0, 16, 8, 8, 8, 0, 0, 8, 97, 0, 112, 8, 8, 8, 0, 0, 8, 113, 0, 240, 8, 8, 8, 0, 0, 8, 50, 0, 56, 0, 8, 8, 0, 0, 8, 66, 0, 152, 0, 8, 8, 0, 0, 8, 82, 0, 24, 8, 8, 8, 0, 0, 8, 98, 0, 120, 8, 8, 8, 0, 0, 8, 114, 0, 248, 8, 8, 8, 0, 0, 8, 51, 0, 64, 0, 8, 8, 0, 0, 8, 67, 0, 160, 0, 8, 8, 0, 0, 8, 83, 0, 32, 8, 8, 8, 0, 0, 8, 99, 0, 128, 8, 8, 8, 0, 0, 8, 115, 0, 0, 16, 8, 8, 0, 0, 8, 116, 0, 8, 16, 8, 8, 0, 0, 8, 52, 0, 72, 0, 8, 8, 0, 0, 8, 68, 0, 168, 0, 8, 8, 0, 0, 8, 84, 0, 40, 8, 8, 8, 0, 0, 8, 100, 0, 136, 8, 8, 8, 0, 0, 8, 117, 0, 16, 16, 8, 8, 0, 0, 8, 53, 0, 80, 0, 8, 8, 0, 0, 8, 69, 0, 176, 0, 8, 8, 0, 0, 8, 85, 0, 48, 8, 8, 8, 0, 0, 8, 101, 0, 144, 8, 8, 8, 0, 0, 8, 118, 0, 24, 16, 8, 8, 0, 0, 8, 54, 0, 88, 0, 8, 8, 0, 0, 8, 70, 0, 184, 0, 8, 8, 0, 0, 8, 86, 0, 56, 8, 8, 8, 0, 0, 8, 102, 0, 152, 8, 8, 8, 0, 0, 8, 119, 0, 32, 16, 8, 8, 0, 0, 8, 55, 0, 96, 0, 8, 8, 0, 0, 8, 71, 0, 192, 0, 8, 8, 0, 0, 8, 87, 0, 64, 8, 8, 8, 0, 0, 8, 103, 0, 160, 8, 8, 8, 0, 0, 8, 120, 0, 40, 16, 8, 8, 0, 0, 8, 56, 0, 104, 0, 8, 8, 0, 0, 8, 72, 0, 200, 0, 8, 8, 0, 0, 8, 88, 0, 72, 8, 8, 8, 0, 0, 8, 104, 0, 168, 8, 8, 8, 0, 0, 8, 121, 0, 48, 16, 8, 8, 0, 0, 8, 57, 0, 112, 0, 8, 8, 0, 0, 8, 73, 0, 208, 0, 8, 8, 0, 0, 8, 89, 0, 80, 8, 8, 8, 0, 0, 8, 105, 0, 176, 8, 8, 8, 0, 0, 8, 122, 0, 56, 16, 8, 8, 0, 0, 8, 58, 0, 120, 0, 8, 8, 0, 0, 8, 74, 0, 216, 0, 8, 8, 0, 0, 8, 90, 0, 88, 8, 8, 8, 0, 0, 8, 106, 0, 184, 8, 8, 8, 0, 0, 8, 43, 0, 8, 0, 8, 8, 0, 0, 8, 59, 0, 128, 0, 8, 8, 0, 0, 8, 75, 0, 224, 0, 8, 8, 0, 0, 8, 107, 0, 192, 8, 8, 8, 0, 0, 8, 44, 0, 16, 0, 8, 8, 0, 0, 8, 76, 0, 232, 0, 8, 8, 0, 0, 8, 108, 0, 200, 8, 8, 8, 0, 0, 8, 61, 0, 136, 0, 8, 8, 0, 0, 8, 77, 0, 240, 0, 8, 8, 0, 0, 8, 109, 0, 208, 8, 8, 8, 0, 0, 8, 45, 0, 24, 0, 8, 8, 0, 0, 8, 110, 0, 216, 8, 8, 8, 0, 0, 8, 78, 0, 248, 0, 8, 8, 0, 0, 8, 46, 0, 32, 0, 8, 8, 0, 0, 8, 111, 0, 224, 8, 8, 8, 0, 0, 8, 95, 0, 96, 8, 8, 8, 0, 0, 8, 79, 0, 0, 8, 8, 8, 0, 0, 8 )
+height = 10.0
+ascent = 8.0
+
+[sub_resource type="RichTextEffect" id=1]
+script = ExtResource( 5 )
+
+[node name="HUD" type="Node2D"]
+pause_mode = 2
+process_priority = 100
+z_index = 100
+script = ExtResource( 8 )
+
+[node name="ConstantText" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_right = 240.0
+margin_bottom = 16.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/line_separation = -2
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 4 )
+custom_fonts/bold_font = ExtResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[color=blue]1[/color]            [color=red]TIME[/color]   [color=yellow]H[/color]
+[color=blue]P[/color]                   [color=yellow]I[/color]"
+text = "1            TIME   H
+P                   I"
+fit_content_height = true
+scroll_active = false
+custom_effects = [ SubResource( 1 ) ]
+
+[node name="LastLifeText" type="RichTextLabel" parent="."]
+visible = false
+show_behind_parent = true
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 32.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/line_separation = -2
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 4 )
+custom_fonts/bold_font = ExtResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[color=#ff8000]LAST
+LIFE[/color]"
+text = "LAST
+LIFE"
+fit_content_height = true
+scroll_active = false
+custom_effects = [ SubResource( 1 ) ]
+
+[node name="1PScore" type="RichTextLabel" parent="."]
+pause_mode = 2
+show_behind_parent = true
+margin_left = 8.0
+margin_right = 80.0
+margin_bottom = 16.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/line_separation = -2
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 4 )
+custom_fonts/bold_font = ExtResource( 1 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[right][i][/i][valign px=-8]67890[/valign][/right]"
+text = "67890"
+fit_content_height = true
+scroll_active = false
+custom_effects = [ SubResource( 1 ) ]
+
+[node name="HiScore" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_left = 168.0
+margin_right = 240.0
+margin_bottom = 16.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/line_separation = -2
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 4 )
+custom_fonts/bold_font = ExtResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[right][i]123[/i][valign px=-8]567890[/valign][/right]"
+text = "123567890"
+fit_content_height = true
+scroll_active = false
+custom_effects = [ SubResource( 1 ) ]
+
+[node name="Timer" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_left = 96.0
+margin_top = 8.0
+margin_right = 144.0
+margin_bottom = 16.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/line_separation = -2
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 4 )
+custom_fonts/bold_font = ExtResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[right]2;00,0[/right]"
+text = "2;00,0"
+fit_content_height = true
+scroll_active = false
+custom_effects = [ SubResource( 1 ) ]
+
+[node name="Countdown" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_left = 112.0
+margin_top = 152.0
+margin_right = 128.0
+margin_bottom = 168.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/line_separation = -2
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 4 )
+custom_fonts/bold_font = ExtResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[b][i]3"
+text = "3"
+fit_content_height = true
+scroll_active = false
+custom_effects = [ SubResource( 1 ) ]
+
+[node name="GameOver" type="RichTextLabel" parent="."]
+visible = false
+show_behind_parent = true
+margin_top = 152.0
+margin_right = 240.0
+margin_bottom = 248.0
+rect_clip_content = false
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/line_separation = -2
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 4 )
+custom_fonts/bold_font = ExtResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center][b][i]GAME OVER[/i][/b]
+
+YOU PLACED NOWHERE
+
+
+
+YOUR MASTER GRADE IS
+[b][i]9[/i][/b]
+
+AND YOU SUCK"
+text = "GAME OVER
+
+YOU PLACED NOWHERE
+
+
+
+YOUR MASTER GRADE IS
+9
+
+AND YOU SUCK"
+fit_content_height = true
+scroll_active = false
+custom_effects = [ SubResource( 1 ) ]
+
+[node name="Rank" type="RichTextLabel" parent="."]
+show_behind_parent = true
+margin_left = 96.0
+margin_top = 312.0
+margin_right = 240.0
+margin_bottom = 320.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/line_separation = -2
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 4 )
+custom_fonts/bold_font = ExtResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[right]100 999999[/right]"
+text = "100 999999"
+fit_content_height = true
+scroll_active = false
+custom_effects = [ SubResource( 1 ) ]
+
+[node name="1PLives" type="TextureRect" parent="."]
+show_behind_parent = true
+margin_top = 16.0
+margin_right = 16.0
+margin_bottom = 32.0
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 2
+
+[node name="1PBombs" type="TextureRect" parent="."]
+show_behind_parent = true
+margin_top = 304.0
+margin_right = 24.0
+margin_bottom = 320.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 2
+
+[node name="BossHPBarBG" type="NinePatchRect" parent="."]
+process_priority = 101
+visible = false
+margin_top = 16.0
+margin_right = 240.0
+margin_bottom = 24.0
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 24, 8 )
+patch_margin_left = 8
+patch_margin_right = 8
+script = ExtResource( 11 )
