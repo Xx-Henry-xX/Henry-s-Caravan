@@ -103,20 +103,8 @@ margin_right = 224.0
 margin_bottom = 60.0
 custom_constants/separation = 8
 
-[node name="Test" type="Button" parent="ScrollContainer/VBoxContainer/LastButtonsContainer"]
-margin_right = 48.0
-margin_bottom = 16.0
-custom_fonts/font = ExtResource( 2 )
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
-text = "Test"
-
 [node name="ResetToDefaultControls" type="Button" parent="ScrollContainer/VBoxContainer/LastButtonsContainer"]
-margin_left = 56.0
-margin_right = 128.0
+margin_right = 72.0
 margin_bottom = 16.0
 custom_fonts/font = ExtResource( 2 )
 custom_styles/hover = SubResource( 1 )
@@ -127,8 +115,8 @@ custom_styles/normal = SubResource( 5 )
 text = "Default"
 
 [node name="ReturnToTitle" type="Button" parent="ScrollContainer/VBoxContainer/LastButtonsContainer"]
-margin_left = 136.0
-margin_right = 192.0
+margin_left = 80.0
+margin_right = 216.0
 margin_bottom = 16.0
 custom_fonts/font = ExtResource( 2 )
 custom_styles/hover = SubResource( 1 )
@@ -136,10 +124,9 @@ custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-text = "Title"
+text = "Return to Title"
 
 [connection signal="drag_ended" from="ScrollContainer/VBoxContainer/DeadzoneContainer/Deadzone" to="." method="SetDeadzone"]
 [connection signal="value_changed" from="ScrollContainer/VBoxContainer/DeadzoneContainer/Deadzone" to="." method="SetDeadzoneText"]
-[connection signal="pressed" from="ScrollContainer/VBoxContainer/LastButtonsContainer/Test" to="." method="GoToTest"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/LastButtonsContainer/ResetToDefaultControls" to="." method="ResetBinding"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/LastButtonsContainer/ReturnToTitle" to="." method="ExitToTitle"]

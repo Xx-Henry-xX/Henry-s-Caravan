@@ -24,7 +24,6 @@ public class ActionBindingMenu : Node
 	HBoxContainer LastBox;
 	Button ResetToDefaultControls;
 	Button Exit;
-	Button Test;
 	VBoxContainer vBoxContainer;
 	Slider DeadzoneSlider;
 	RichTextLabel DeadzoneLabel;
@@ -37,7 +36,6 @@ public class ActionBindingMenu : Node
 		LastBox = vBoxContainer.GetNode<HBoxContainer>("LastButtonsContainer");
 		ResetToDefaultControls = LastBox.GetNode<Button>("ResetToDefaultControls");
 		Exit = LastBox.GetNode<Button>("ReturnToTitle");
-		Test = LastBox.GetNode<Button>("Test");
 		DeadzoneSlider = vBoxContainer.GetNode<Slider>("DeadzoneContainer/Deadzone");
 		DeadzoneLabel = vBoxContainer.GetNode<RichTextLabel>("DeadzoneContainer/DeadzoneLabel");
 
