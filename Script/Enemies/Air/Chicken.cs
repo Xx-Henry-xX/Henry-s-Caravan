@@ -23,7 +23,7 @@ public class Chicken : EnemyBase
         Array.Fill(shotSealed, 0);
     }
 
-    public override void Movement(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override void Movement(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         position.x += movement.x;
         position.y += (sfloat)3;
@@ -43,7 +43,7 @@ public class Chicken : EnemyBase
         else movement.x = Clamp(movement.x + movement.y, (sfloat)(-4), (sfloat)4);
     }
 
-    public override List<BulletInfo> Shoot(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override List<BulletInfo> Shoot(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         List<BulletInfo> rtnValue = new List<BulletInfo>();
         SealCheck(player.GetSFPosition());
@@ -82,7 +82,7 @@ public class Chicken : EnemyBase
         return rtnValue;
     }
 
-    public override List<BulletInfo> RevengeShot(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override List<BulletInfo> RevengeShot(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         if (gManager.loop == 0) return new List<BulletInfo>();
         gManager.p1Score += 440; //110 / bullet
@@ -105,7 +105,7 @@ public class Chicken : EnemyBase
         return rtnValue;
     }
 
-    public override List<ExplosionFX> Explosions()
+    public override List<ExplosionFX> Explosions(AudioManager aManager)
     {
         SFPoint vel = SFPoint.ZeroSFPoint;
         sfloat randius;
@@ -127,7 +127,7 @@ public class Chicken : EnemyBase
             rtnValue.Add(new ExplosionFX(position, vel, decay, timer));
             //count -= (sfloat)0.05f;
         }
-
+        aManager.Play("expl_zako", 3, 1);
         return rtnValue;
     }
 }

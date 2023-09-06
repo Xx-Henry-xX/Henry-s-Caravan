@@ -1,0 +1,51 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Script/AudioManager.cs" type="Script" id=1]
+[ext_resource path="res://Sounds/cyrf_energy.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Sounds/item_1up.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/ded.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/bombexpl.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/expl_large.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/item_2up.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/item_gem.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/item_bomb.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/shothit.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/expl_zako.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/item_medal10k.wav" type="AudioStream" id=12]
+[ext_resource path="res://Sounds/bombfired.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sounds/item_medal100.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sounds/item_medal1k.wav" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/expl_med.wav" type="AudioStream" id=16]
+
+[node name="AudioManager" type="Node"]
+pause_mode = 2
+script = ExtResource( 1 )
+audios = {
+"bgm": ExtResource( 2 ),
+"bombexpl": ExtResource( 5 ),
+"bombfired": ExtResource( 13 ),
+"ded": ExtResource( 4 ),
+"expl_large": ExtResource( 6 ),
+"expl_med": ExtResource( 16 ),
+"expl_zako": ExtResource( 11 ),
+"item_1up": ExtResource( 3 ),
+"item_2up": ExtResource( 7 ),
+"item_bomb": ExtResource( 9 ),
+"item_gem": ExtResource( 8 ),
+"item_medal100": ExtResource( 14 ),
+"item_medal10k": ExtResource( 12 ),
+"item_medal1k": ExtResource( 15 ),
+"shothit": ExtResource( 10 )
+}
+
+[node name="MusicChannel" type="AudioStreamPlayer" parent="."]
+bus = "Music"
+
+[node name="SFXChannel1" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
+
+[node name="SFXChannel2" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
+
+[node name="SFXChannel3" type="AudioStreamPlayer" parent="."]
+bus = "SFX"

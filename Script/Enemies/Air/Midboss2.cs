@@ -28,7 +28,7 @@ public class Midboss2 : EnemyBase
         Array.Fill(shotSealed, -1);
     }
 
-    public override void Movement(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override void Movement(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         position += movement;
         impatience--;
@@ -53,7 +53,7 @@ public class Midboss2 : EnemyBase
         foreach (SFAABB nmeBox in hitboxGroup) if (IntersectBoxVSBox(leaveArea, nmeBox.Offset(position))) return false;
         return leaveTimer <= 0 && impatience <= 0;
     }
-    public override List<BulletInfo> Shoot(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override List<BulletInfo> Shoot(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         List<BulletInfo> rtnValue = new List<BulletInfo>();
 
@@ -199,9 +199,9 @@ public class Midboss2 : EnemyBase
         return rtnValue;
     }
 
-    public override List<BulletInfo> Kill(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override List<BulletInfo> Kill(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
-        List<BulletInfo> rtnValue = RevengeShot(gManager, eManager, bManager, player);
+        List<BulletInfo> rtnValue = RevengeShot(gManager, eManager, bManager, aManager, player);
 
         int multi = 10;
         if (!player.GetFreeX10())
@@ -226,7 +226,7 @@ public class Midboss2 : EnemyBase
         return rtnValue;
     }
 
-    public override List<ExplosionFX> Explosions()
+    public override List<ExplosionFX> Explosions(AudioManager aManager)
     {
         List<SFPoint> offsets;
         SFPoint vel = SFPoint.ZeroSFPoint;
@@ -282,6 +282,7 @@ public class Midboss2 : EnemyBase
                 rtnValue.Add(new ExplosionFX(position + offsets[i], vel, decay, timer, 0, i * 6 + 6));
             } 
         }
-            return rtnValue;
+        aManager.Play("expl_large", 3, 3);
+        return rtnValue;
     }
 }

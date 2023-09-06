@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/cyrf_energy.mp3-f79a2858436a6165fd78310390a59954.mp3str"
+
+[deps]
+
+source_file="res://Sounds/cyrf_energy.mp3"
+dest_files=[ "res://.import/cyrf_energy.mp3-f79a2858436a6165fd78310390a59954.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

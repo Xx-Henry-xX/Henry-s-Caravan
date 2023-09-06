@@ -26,6 +26,8 @@ public class PlayerController : Node2D
     private GameManager gManager;
     private BulletManager bManager;
     private EnemyManager eManager;
+    private AudioManager aManager;
+
 
     private SFPoint direction = SFPoint.ZeroSFPoint;
 	private int tiltValue = 2;
@@ -64,6 +66,8 @@ public class PlayerController : Node2D
         gManager = GetNode<GameManager>("/root/GameManager");
         bManager = GetNode<BulletManager>("/root/Main/BulletManager");
         eManager = GetNode<EnemyManager>("/root/Main/EnemyManager");
+        aManager = GetNode<AudioManager>("/root/AudioManager");
+
         playerBox = new SFAABB(startPos, new SFPoint((sfloat)2, (sfloat)2));
     }
 	public override void _Process(float delta)
@@ -175,6 +179,7 @@ public class PlayerController : Node2D
                     deathFX = new PlayerFX(3, playerBox.center, SFPoint.ZeroSFPoint);
 
                     ang = 2;
+                    aManager.Play("ded", 2, 2);
                 }
                 if (iframe > 0) ang = 0;
                 break;
@@ -192,7 +197,7 @@ public class PlayerController : Node2D
             counter++;
         }
         while (cancelQueue.Count != 0) deathShots.RemoveAt(cancelQueue.Pop());
-        bomberObject.Process(this);
+        bomberObject.Process(this, aManager);
 
         counter = 0;
         foreach (PlayerFX fx in shotHitFX)
@@ -351,7 +356,7 @@ public class PlayerController : Node2D
         {
             gManager.rank += 1000;
             gManager.rank = Math.Min(gManager.rank, 999999);
-            bomberObject.Setup(playerBox.center, gManager);
+            bomberObject.Setup(playerBox.center, gManager, aManager);
             gManager.p1Bombs--;
             bManager.CancelAll(true);
         }
@@ -374,6 +379,8 @@ public class PlayerController : Node2D
                         
                         eManager.NewScoreFX(new ScoreFX(1, 0, item.itemBox.center, SFPoint.ZeroSFPoint));
 
+                        aManager.Play("item_gem", 1);
+
                         break;
                     case -3:
                         gManager.p1Bombs++;
@@ -384,11 +391,13 @@ public class PlayerController : Node2D
                             eManager.NewScoreFX(new ScoreFX(1, 13, item.itemBox.center, SFPoint.ZeroSFPoint));
                             gManager.rank -= 20000;
                             gManager.rank = Math.Max(gManager.rank, 0);
+                            aManager.Play("item_medal10k", 1, 2);
                         }
                         else
                         {
                             gManager.rank += 20000;
                             gManager.rank = Math.Min(gManager.rank, 999999);
+                            aManager.Play("item_bomb", 1, 2);
                         }
                         break;
                     case -2:
@@ -396,13 +405,14 @@ public class PlayerController : Node2D
                         gManager.rank += 125000;
                         gManager.rank = Math.Min(gManager.rank, 999999);
                         gManager.rankPerFrame += 7;
-                        gManager.twoUpCount++;
+                        aManager.Play("item_2up", 1, 5);
                         break;
                     case -1:
                         gManager.p1Lives++;
                         gManager.rank += 50000;
                         gManager.rank = Math.Min(gManager.rank, 999999);
                         gManager.rankPerFrame += 3;
+                        aManager.Play("item_1up", 1, 4);
                         break;
                     case int n when n >= 0 && n < 19:
                         
@@ -412,6 +422,7 @@ public class PlayerController : Node2D
                         gManager.rank = Math.Min(gManager.rank, 999999);
                         gManager.currentMedal = Mathf.Clamp(n + 1, 0, 18);
                         gManager.rankPerFrame += 1;
+                        aManager.Play(n == 18 ? "item_medal10k" : n >= 9 ? "item_medal1k" : "item_medal100", 1, 3);
                         break;
                 }
                 todel.Add(item);
@@ -551,15 +562,16 @@ public class Bomber
         rng = new RandomNumberGenerator();
     }
 
-    public void Setup(SFPoint startPos, GameManager gManager)
+    public void Setup(SFPoint startPos, GameManager gManager, AudioManager aManager)
     {
         active = true;
         shotBox = new SFCircle(startPos, (sfloat)32);
         rng.Seed = (ulong)(gManager.p1Score + gManager.rank);
         flying = true;
+        aManager.Play("bombfired", 2, 1);
     }
 
-    public void Process(PlayerController player)
+    public void Process(PlayerController player, AudioManager aManager)
     {
         if (active)
         {
@@ -571,6 +583,7 @@ public class Bomber
                     flying = false;
                     lifetime = 0;
                     shotBox.radius = (sfloat)80;
+                    aManager.Play("bombexpl", 2, 1);
                 }
             }
             else

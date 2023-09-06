@@ -16,5 +16,5 @@ Sprite Sheet Importer by snkkid99 licensed MIT License: https://github.com/snkki
 Most of the other stuffs are by me and are released under the MIT License, except for the following:
 - Fonts that are most likely public domain (8x8 is based on generic 8-bit font; 8x16 is modified 8x8, 16x16 is modified 8x16, 16x8 is modified 16x16)
 - All png files in /Sprites except for /Sprites/Effects/multi.png & /Sprites/Effects/multi2.png which use above font are under OGL-BY 3.0 (See /Sprites/LICENSE.txt)
-
-*To avoid any copyright issues, audio resources are excluded in this distribution.
+- bgm.mp3 is from https://cyber-rainforce.net/2018/08/14/energy/
+- Rest of the audio files are from http://osabisi.sakura.ne.jp/m2/

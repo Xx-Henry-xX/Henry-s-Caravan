@@ -25,7 +25,7 @@ public class Bouncy : EnemyBase
         Array.Fill(shotSealed, 0);
     }
 
-    public override void Movement(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override void Movement(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         position += movement;
         movement.y += (sfloat)0.5;
@@ -37,7 +37,7 @@ public class Bouncy : EnemyBase
         }
     }
 
-    public override List<BulletInfo> Shoot(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override List<BulletInfo> Shoot(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         List<BulletInfo> rtnValue = new List<BulletInfo>();
         SealCheck(player.GetSFPosition());
@@ -71,7 +71,7 @@ public class Bouncy : EnemyBase
         return rtnValue;
     }
 
-    public override List<BulletInfo> RevengeShot(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override List<BulletInfo> RevengeShot(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         if (gManager.loop == 0) return new List<BulletInfo>();
         gManager.p1Score += 220; //110 / bullet
@@ -96,7 +96,7 @@ public class Bouncy : EnemyBase
         return rtnValue;
     }
 
-    public override List<ExplosionFX> Explosions()
+    public override List<ExplosionFX> Explosions(AudioManager aManager)
     {
         SFPoint vel = SFPoint.ZeroSFPoint;
         sfloat randius;
@@ -118,7 +118,7 @@ public class Bouncy : EnemyBase
             rtnValue.Add(new ExplosionFX(position, vel, decay, timer));
             //count -= (sfloat)0.05f;
         }
-
+        aManager.Play("expl_zako", 3, 1);
         return rtnValue;
     }
 }

@@ -26,6 +26,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+AudioManager="*res://Scenes/AudioManager.tscn"
 GameManager="*res://Scenes/GameManager.tscn"
 DefaultControlsSaver="*res://addons/ActionBinding/DefaultControlsSaver.tscn"
 
@@ -36,6 +37,7 @@ window/size/height=320
 window/size/resizable=false
 window/size/test_width=720
 window/size/test_height=960
+window/vsync/use_vsync=false
 window/handheld/orientation="portrait"
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"

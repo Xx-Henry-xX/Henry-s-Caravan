@@ -27,7 +27,7 @@ public class PurpleMedium : EnemyBase
         Array.Fill(shotSealed, 0);
     }
 
-    public override void Movement(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override void Movement(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         position += movement;
         switch (mode)
@@ -53,7 +53,7 @@ public class PurpleMedium : EnemyBase
         movement.y = sfloat.Max(movement.y, (sfloat)(-4));
     }
 
-    public override List<BulletInfo> Shoot(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override List<BulletInfo> Shoot(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         List<BulletInfo> rtnValue = new List<BulletInfo>();
         SealCheck(player.GetSFPosition());
@@ -156,7 +156,7 @@ public class PurpleMedium : EnemyBase
         return rtnValue;
     }
 
-    public override List<BulletInfo> RevengeShot(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override List<BulletInfo> RevengeShot(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         if (gManager.loop == 0) return new List<BulletInfo>();
         gManager.p1Score += 2640; //110 / bullet
@@ -181,7 +181,7 @@ public class PurpleMedium : EnemyBase
         return rtnValue;
     }
 
-    public override List<ExplosionFX> Explosions()
+    public override List<ExplosionFX> Explosions(AudioManager aManager)
     {
         SFPoint vel = SFPoint.ZeroSFPoint;
         sfloat randius;
@@ -203,7 +203,7 @@ public class PurpleMedium : EnemyBase
             rtnValue.Add(new ExplosionFX(position, vel, decay, timer));
             //count -= (sfloat)0.05f;
         }
-
+        aManager.Play("expl_med", 3, 2);
         return rtnValue;
     }
 }

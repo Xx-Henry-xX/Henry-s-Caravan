@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://addons/ActionBinding/ActionBindingMenu.cs" type="Script" id=1]
 [ext_resource path="res://Font/generic.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://Sprites/Effects/blue/exhaust3.tres" type="Texture" id=3]
+[ext_resource path="res://Sprites/Enemies/seal.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Bullets/blue/needle.tres" type="Texture" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 8.0
@@ -28,8 +31,8 @@ corner_radius_bottom_left = 4
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id=3]
-content_margin_left = 0.0
-content_margin_right = 0.0
+content_margin_left = 8.0
+content_margin_right = 8.0
 content_margin_top = 0.0
 content_margin_bottom = 6.0
 bg_color = Color( 1, 1, 0, 1 )
@@ -40,8 +43,8 @@ corner_radius_bottom_left = 4
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id=4]
-content_margin_left = 0.0
-content_margin_right = 0.0
+content_margin_left = 8.0
+content_margin_right = 8.0
 content_margin_top = 0.0
 content_margin_bottom = 6.0
 bg_color = Color( 0.2, 0.2, 0.2, 1 )
@@ -62,6 +65,80 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 anti_aliasing = false
 
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.8, 0.8, 0.8, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=8]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=9]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 1, 1, 0, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=10]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.2, 0.2, 0.2, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=11]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.8, 0.8, 0.8, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=12]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
 [node name="ActionBindingMenu" type="Control"]
 script = ExtResource( 1 )
 
@@ -71,12 +148,94 @@ margin_bottom = 320.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 224.0
-margin_bottom = 60.0
+margin_bottom = 156.0
 custom_constants/separation = 8
 
-[node name="DeadzoneContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="DisplayHeader" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
 margin_right = 224.0
-margin_bottom = 36.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 96, 16 )
+custom_fonts/normal_font = ExtResource( 2 )
+text = "------Display Settings------"
+scroll_active = false
+
+[node name="WindowSizeContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 224.0
+margin_bottom = 40.0
+custom_constants/separation = 0
+
+[node name="WindowSizeLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/WindowSizeContainer"]
+margin_right = 96.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 96, 16 )
+custom_fonts/normal_font = ExtResource( 2 )
+text = "Window Size:"
+scroll_active = false
+
+[node name="WindowSize" type="OptionButton" parent="ScrollContainer/VBoxContainer/WindowSizeContainer"]
+margin_left = 96.0
+margin_right = 152.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 0, 16 )
+custom_constants/hseparation = 8
+custom_constants/arrow_margin = 8
+custom_fonts/font = ExtResource( 2 )
+custom_icons/arrow = ExtResource( 5 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "x1"
+
+[node name="VSyncContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 224.0
+margin_bottom = 64.0
+custom_constants/separation = 0
+
+[node name="VSyncLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/VSyncContainer"]
+margin_right = 48.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 48, 16 )
+custom_fonts/normal_font = ExtResource( 2 )
+text = "VSync:"
+scroll_active = false
+
+[node name="VSync" type="CheckBox" parent="ScrollContainer/VBoxContainer/VSyncContainer"]
+margin_left = 48.0
+margin_right = 80.0
+margin_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 2 )
+custom_icons/checked = ExtResource( 3 )
+custom_icons/unchecked = SubResource( 6 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/hover_pressed = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+align = 1
+icon_align = 1
+
+[node name="DisplayHeader2" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 72.0
+margin_right = 224.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 96, 16 )
+custom_fonts/normal_font = ExtResource( 2 )
+text = "------Display Settings------"
+scroll_active = false
+
+[node name="DeadzoneContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 96.0
+margin_right = 224.0
+margin_bottom = 132.0
 
 [node name="DeadzoneLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/DeadzoneContainer"]
 margin_right = 224.0
@@ -98,9 +257,9 @@ tick_count = 11
 ticks_on_borders = true
 
 [node name="LastButtonsContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
-margin_top = 44.0
+margin_top = 140.0
 margin_right = 224.0
-margin_bottom = 60.0
+margin_bottom = 156.0
 custom_constants/separation = 8
 
 [node name="ResetToDefaultControls" type="Button" parent="ScrollContainer/VBoxContainer/LastButtonsContainer"]
@@ -126,6 +285,8 @@ custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 text = "Return to Title"
 
+[connection signal="item_selected" from="ScrollContainer/VBoxContainer/WindowSizeContainer/WindowSize" to="." method="_on_WindowSize_item_selected"]
+[connection signal="toggled" from="ScrollContainer/VBoxContainer/VSyncContainer/VSync" to="." method="_on_VSync_toggled"]
 [connection signal="drag_ended" from="ScrollContainer/VBoxContainer/DeadzoneContainer/Deadzone" to="." method="SetDeadzone"]
 [connection signal="value_changed" from="ScrollContainer/VBoxContainer/DeadzoneContainer/Deadzone" to="." method="SetDeadzoneText"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/LastButtonsContainer/ResetToDefaultControls" to="." method="ResetBinding"]

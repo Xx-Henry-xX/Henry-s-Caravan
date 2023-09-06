@@ -15,6 +15,7 @@ public class EnemyManager : Node2D
     private GameManager gManager;
     private BulletManager bManager;
     private PlayerController player;
+    private AudioManager aManager;
     private readonly SpriteFrames enemyAnimations = GD.Load<SpriteFrames>("res://Sprites/Enemies/Enemies.tres");
     private readonly SpriteFrames fxAnimations = GD.Load<SpriteFrames>("res://Sprites/Effects/FX.tres");
 
@@ -22,6 +23,7 @@ public class EnemyManager : Node2D
     {
         gManager = GetNode<GameManager>("/root/GameManager");
         bManager = GetNode<BulletManager>("/root/Main/BulletManager");
+        aManager = GetNode<AudioManager>("/root/AudioManager");
         player = GetNode<PlayerController>("/root/Main/Player");
     }
 
@@ -31,15 +33,15 @@ public class EnemyManager : Node2D
         int index = 0;
         foreach (EnemyBase nme in enemies)
         {
-            nme.Movement(gManager, this, bManager, player);
+            nme.Movement(gManager, this, bManager, aManager, player);
             if (nme.LeaveCheck()) removeQueue.Push(index);
-            else if (nme.DamageCheck(gManager, player))
+            else if (nme.DamageCheck(gManager, aManager, player))
             {
-                foreach (BulletInfo bltNfo in nme.Kill(gManager, this, bManager, player))
+                foreach (BulletInfo bltNfo in nme.Kill(gManager, this, bManager, aManager, player))
                 {
                     bManager.CreateBullet(bltNfo.blt, bltNfo.drawOnBottom);
                 }
-                foreach (ExplosionFX fx in nme.Explosions())
+                foreach (ExplosionFX fx in nme.Explosions(aManager))
                 {
                     explfx.Add(fx);
                 }
@@ -47,7 +49,7 @@ public class EnemyManager : Node2D
             }
             else
             {
-                foreach (BulletInfo bltNfo in nme.Shoot(gManager, this, bManager, player))
+                foreach (BulletInfo bltNfo in nme.Shoot(gManager, this, bManager, aManager, player))
                 {
                     bManager.CreateBullet(bltNfo.blt, bltNfo.drawOnBottom);
                 }

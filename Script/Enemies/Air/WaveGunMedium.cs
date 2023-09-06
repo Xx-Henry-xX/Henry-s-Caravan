@@ -24,7 +24,7 @@ public class WaveGunMedium : EnemyBase
         Array.Fill(shotSealed, 0);
     }
 
-    public override void Movement(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override void Movement(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         position += movement;
         switch (mode)
@@ -54,7 +54,7 @@ public class WaveGunMedium : EnemyBase
         }
     }
 
-    public override List<BulletInfo> Shoot(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override List<BulletInfo> Shoot(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         List<BulletInfo> rtnValue = new List<BulletInfo>();
         SealCheck(player.GetSFPosition());
@@ -87,7 +87,7 @@ public class WaveGunMedium : EnemyBase
         return rtnValue;
     }
 
-    public override List<BulletInfo> RevengeShot(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override List<BulletInfo> RevengeShot(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         if (gManager.loop == 0) return new List<BulletInfo>();
         gManager.p1Score += 1760; //110 / bullet
@@ -110,7 +110,7 @@ public class WaveGunMedium : EnemyBase
         return rtnValue;
     }
 
-    public override List<ExplosionFX> Explosions()
+    public override List<ExplosionFX> Explosions(AudioManager aManager)
     {
         SFPoint vel = SFPoint.ZeroSFPoint;
         sfloat randius;
@@ -132,7 +132,7 @@ public class WaveGunMedium : EnemyBase
             rtnValue.Add(new ExplosionFX(position, vel, decay, timer));
             //count -= (sfloat)0.05f;
         }
-
+        aManager.Play("expl_med", 3, 2);
         return rtnValue;
     }
 }

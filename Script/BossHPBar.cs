@@ -26,8 +26,6 @@ public class BossHPBar : NinePatchRect
         if (gManager.boss == null)
         {
             initialHP = -1;
-            if (animationFrame == 0) return;
-            animationFrame = Math.Min(animationFrame, 10);
             animationFrame--;
         }
         else
@@ -37,13 +35,12 @@ public class BossHPBar : NinePatchRect
                 initialHP = gManager.boss.hp;
                 GD.Print("boss initial:" + initialHP);
             }
-            if (animationFrame < 16) animationFrame++;
+            animationFrame++;
         }
 
+        animationFrame = Math.Clamp(animationFrame, 0, 16);
         p1LivesRect.SetPosition(new Vector2(0, 16 + animationFrame / 2));
         lastlifeLabel.SetPosition(new Vector2(0, 16 + animationFrame / 2));
-        animationFrame = Math.Min(animationFrame, 15);
-
         if (animationFrame / 2 == 0)
         {
             Visible = false;
@@ -58,7 +55,7 @@ public class BossHPBar : NinePatchRect
     {
         base._Draw();
 
-        if (animationFrame / 2 >= 5)
+        if (animationFrame / 2 >= 5 && gManager.boss != null)
         {
             sfloat length = libm.ceilf((sfloat)gManager.boss.hp / (sfloat)initialHP * (sfloat)224);
             DrawSetTransform(Vector2.Right * 8, 0, new Vector2((float)length, 1));

@@ -40,7 +40,7 @@ public abstract class EnemyBase
         this.drawOrder = drawOrder;
     }
 
-    public virtual bool DamageCheck(GameManager gManager, PlayerController player)
+    public virtual bool DamageCheck(GameManager gManager, AudioManager aManager, PlayerController player)
     {
         damagedOnThisFrame = false;
         damagable = false;
@@ -97,6 +97,7 @@ public abstract class EnemyBase
                             hp--;
                         }
                         gManager.p1Score += 20u;
+                        
                     }
                 }
             }
@@ -118,21 +119,22 @@ public abstract class EnemyBase
                 }
             }
         }
+        if (damagedOnThisFrame) aManager.Play("shothit", 3);
 
         return hp < 1;
     }
 
-    public virtual void Movement(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public virtual void Movement(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         return;
     }
 
-    public virtual List<BulletInfo> Shoot(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public virtual List<BulletInfo> Shoot(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         return new List<BulletInfo>();
     }
 
-    public virtual List<BulletInfo> RevengeShot(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public virtual List<BulletInfo> RevengeShot(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         return new List<BulletInfo>();
     }
@@ -145,7 +147,7 @@ public abstract class EnemyBase
         return leaveTimer <= 0;
     }
 
-    public virtual List<BulletInfo> Kill(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public virtual List<BulletInfo> Kill(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         int multi = 10;
         if (!player.GetFreeX10())
@@ -174,10 +176,10 @@ public abstract class EnemyBase
             bManager.CreateItem(new Item(gManager, (ItemType)gManager.currentMedal, position));
             gManager.medalDropCounter += 100;
         }
-        return RevengeShot(gManager, eManager, bManager, player);
+        return RevengeShot(gManager, eManager, bManager, aManager, player);
     }
 
-    public virtual List<ExplosionFX> Explosions()
+    public virtual List<ExplosionFX> Explosions(AudioManager aManager)
     {
         return new List<ExplosionFX>();
     }

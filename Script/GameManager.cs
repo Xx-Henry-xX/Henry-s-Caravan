@@ -16,23 +16,24 @@ public class GameManager : Node2D
     public readonly string[] posString = { "1ST", "2ND", "3RD", "4TH", "5TH", "NOWHERE" };
     public readonly uint[] gradeCutoffs =
     {
-        50000u,     //8
-        100000u,    //7
-        150000u,    //6
-        200000u,    //5
-        300000u,    //4
-        500000u,    //3
-        650000u,    //2
-        800000u,    //1
-        1000000u,   //S1
-        1250000u,   //S2
-        1500000u,   //S3
-        1750000u,   //S4
+         100000u,   //8
+         200000u,   //7
+         300000u,   //6
+         400000u,   //5
+         550000u,   //4
+         700000u,   //3
+         850000u,   //2
+        1000000u,   //1
+        1200000u,   //S1
+        1400000u,   //S2
+        1600000u,   //S3
+        1800000u,   //S4
         2000000u,   //S5
-        2500000u,   //S6
-        3000000u    //S7
+        2250000u,   //S6
+        2500000u,   //S7
+        2750000u,   //S8
+        3000000u    //S9
     };
-    public int twoUpCount = 0;
 
 
 
@@ -53,13 +54,14 @@ public class GameManager : Node2D
     private bool bonusgiven = false;
 
     public EnemyBase boss = null; //for hp bar
+    private AudioManager aManager;
 
     public const string HIGH_SCORES_FILE_PATH = "user://highscore.save";
     public readonly uint[] defaulttop5 = { 250000, 20000, 15000, 10000, 5000 };
 
     public override void _Ready()
     {
-        
+        aManager = GetNode<AudioManager>("/root/AudioManager");
     }
 
     public void Reset()
@@ -82,9 +84,9 @@ public class GameManager : Node2D
         clearTimer = 300;
         bonusgiven = false;
         boss = null;
-        twoUpCount = 0;
 
         playing = true;
+        aManager.Play("bgm", 0);
     }
 
     public override void _PhysicsProcess(float delta)
@@ -93,19 +95,14 @@ public class GameManager : Node2D
         {
             GetTree().ChangeScene("res://Scenes/Title.tscn");
             playing = false;
+            aManager.StopAll();
         }
         if (!playing) return;
         if (boss != null)
         {
-            if (boss.hp <= 0)
+            if (boss.hp <= 0 || boss.LeaveCheck())
             {
                 boss = null;
-                GD.Print("rip boss");
-            }
-            if (boss.LeaveCheck())
-            {
-                boss = null;
-                GD.Print("boss left");
             }
         }
 
@@ -119,7 +116,6 @@ public class GameManager : Node2D
         {
             if (clearTimer <= 0 && !bonusgiven)
             {
-                GD.Print("bonk");
                 p1Score += (uint)(framesLeft % 6 * 1000);
                 bonusgiven = true;
             }
@@ -143,9 +139,10 @@ public class GameManager : Node2D
         hiScore = Math.Max(hiScore, p1Score);
         GetTree().Paused = true;
         playing = false;
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i <= 5; i++)
         {
             pos = i;
+            if (pos == 5) break;
             if (p1Score > top5[i]) break;
         }
         if (pos < 5)
@@ -157,6 +154,7 @@ public class GameManager : Node2D
             top5[pos] = p1Score;
         }
         SaveScores();
+        aManager.StopAll();
     }
 
     public void ResetScores()
@@ -202,7 +200,7 @@ public class GameManager : Node2D
             if (p1Score < n) break;
             rtnValue++;
         }
-        rtnValue += loop + twoUpCount + (clearTimer <= 0 ? 1 : 0);
+        rtnValue += loop + (clearTimer <= 0 ? 1 : 0);
         rtnValue = Math.Min(rtnValue, 19);
         if (rtnValue == 19 && p1Score < 3000000u) rtnValue--;
 

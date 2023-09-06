@@ -12,6 +12,7 @@ public class BossGreatBummer : EnemyBase
     int mode = -1;
     readonly int startShootingAt;
     SFPoint directionCache = SFPoint.ZeroSFPoint;
+    int special = 0;
     public BossGreatBummer(GameManager gManager, int drawOrder = 0) : base(gManager, drawOrder)
     {
         position = new SFPoint((sfloat)120, (sfloat)(-40));
@@ -43,7 +44,7 @@ public class BossGreatBummer : EnemyBase
         startShootingAt = (1000000 - spawnRank) / 20000;
     }
 
-    public override void Movement(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override void Movement(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         position += movement;
         if (movement.y > (sfloat)0) movement.y -= (sfloat)1;
@@ -57,7 +58,7 @@ public class BossGreatBummer : EnemyBase
         foreach (SFAABB nmeBox in hitboxGroup) if (IntersectBoxVSBox(leaveArea, nmeBox.Offset(position))) return false;
         return leaveTimer <= 0;
     }
-    public override List<BulletInfo> Shoot(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override List<BulletInfo> Shoot(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         List<BulletInfo> rtnValue = new List<BulletInfo>();
         SealCheck(player.GetSFPosition());
@@ -300,41 +301,55 @@ public class BossGreatBummer : EnemyBase
                     {
                         if (shotCounter % 2 == 0)
                         {
-                            if (shotSealed[0] > 0 && shotSealed[1] > 0)
+                            List<SFPoint> directs;
+                            switch (special)
                             {
-                                directionCache = (player.GetSFPosition() - (position + shotSealPoints[5])).Normalized() * (sfloat)20;
-                                List<SFPoint> directs = Fan(directionCache, 7, (sfloat)(0.05) * sfloat.FromRaw(0x40490fdb));
-                                directs.Reverse();
-                                foreach (SFPoint shootTo in directs) rtnValue.Add(new BulletInfo(
-                                          new Bullet(BulletPack.BltColor.Pink, BulletPack.BltShape.Spark, position + shotSealPoints[5], shootTo),
-                                          true
-                                    ));
-                                bManager.CreateFlash(new FlashFX(position + shotSealPoints[5], FlashType.Circle24px, (sfloat)0));
-                            }
-                            else
-                            {
-                                if (shotSealed[0] <= -1)
-                                {
-                                    List<SFPoint> directs = Fan(directionCache, 3, (sfloat)(0.01) * sfloat.FromRaw(0x40490fdb));
+                                case 0:
+                                    directs = Fan(new SFPoint((sfloat)0, (sfloat)20), 3, (sfloat)(0.01) * sfloat.FromRaw(0x40490fdb));
                                     directs.Reverse();
                                     foreach (SFPoint shootTo in directs) rtnValue.Add(new BulletInfo(
                                           new Bullet(BulletPack.BltColor.Red, BulletPack.BltShape.LargeRugby, position + shotSealPoints[0], shootTo),
                                           true
                                     ));
                                     bManager.CreateFlash(new FlashFX(position + shotSealPoints[0], FlashType.Circle24px, (sfloat)0));
-                                }
-                                if (shotSealed[1] <= -1)
-                                {
-                                    List<SFPoint> directs = Fan(directionCache, 3, (sfloat)(-0.01) * sfloat.FromRaw(0x40490fdb));
+
+                                    directs = Fan(new SFPoint((sfloat)0, (sfloat)20), 3, (sfloat)(-0.01) * sfloat.FromRaw(0x40490fdb));
                                     directs.Reverse();
                                     foreach (SFPoint shootTo in directs) rtnValue.Add(new BulletInfo(
                                           new Bullet(BulletPack.BltColor.Red, BulletPack.BltShape.LargeRugby, position + shotSealPoints[1], shootTo),
                                           true
                                     ));
                                     bManager.CreateFlash(new FlashFX(position + shotSealPoints[1], FlashType.Circle24px, (sfloat)0));
-                                }
-
+                                    break;
+                                case 1:
+                                    directs = Fan(directionCache, 3, (sfloat)(-0.01) * sfloat.FromRaw(0x40490fdb));
+                                    directs.Reverse();
+                                    foreach (SFPoint shootTo in directs) rtnValue.Add(new BulletInfo(
+                                          new Bullet(BulletPack.BltColor.Red, BulletPack.BltShape.LargeRugby, position + shotSealPoints[1], shootTo),
+                                          true
+                                    ));
+                                    bManager.CreateFlash(new FlashFX(position + shotSealPoints[1], FlashType.Circle24px, (sfloat)0));
+                                    break;
+                                case 2:
+                                    directs = Fan(directionCache, 3, (sfloat)(0.01) * sfloat.FromRaw(0x40490fdb));
+                                    directs.Reverse();
+                                    foreach (SFPoint shootTo in directs) rtnValue.Add(new BulletInfo(
+                                          new Bullet(BulletPack.BltColor.Red, BulletPack.BltShape.LargeRugby, position + shotSealPoints[0], shootTo),
+                                          true
+                                    ));
+                                    bManager.CreateFlash(new FlashFX(position + shotSealPoints[0], FlashType.Circle24px, (sfloat)0));
+                                    break;
+                                case 3:
+                                    directs = Fan(directionCache, 7, (sfloat)(0.05) * sfloat.FromRaw(0x40490fdb));
+                                    directs.Reverse();
+                                    foreach (SFPoint shootTo in directs) rtnValue.Add(new BulletInfo(
+                                              new Bullet(BulletPack.BltColor.Pink, BulletPack.BltShape.Spark, position + shotSealPoints[5], shootTo),
+                                              true
+                                        ));
+                                    bManager.CreateFlash(new FlashFX(position + shotSealPoints[5], FlashType.Circle24px, (sfloat)0));
+                                    break;
                             }
+                            
                         }
                             
                     }
@@ -342,28 +357,54 @@ public class BossGreatBummer : EnemyBase
                     {
                         if (shotCounter % 2 == 0)
                         {
-                            if (shotSealed[0] > 0 && shotSealed[1] > 0)
+                            switch (special)
                             {
-                                List<SFPoint> directs = Fan(directionCache, 7, (sfloat)(0.05) * sfloat.FromRaw(0x40490fdb));
-                                foreach (SFPoint shootTo in directs)
-                                    bManager.CreateExhaust(new ExhaustFX(FXColor.Orange, position + shotSealPoints[5], shootTo), true);
-                            }
-                            else
-                            {
-                                if (shotSealed[0] <= -1) bManager.CreateExhaust(new ExhaustFX(FXColor.Orange, position + shotSealPoints[0], directionCache), true);
-                                if (shotSealed[1] <= -1) bManager.CreateExhaust(new ExhaustFX(FXColor.Orange, position + shotSealPoints[1], directionCache), true);
+                                case 0:
+                                    shotSealed[0] = -1;
+                                    shotSealed[1] = -1;
+                                    bManager.CreateExhaust(new ExhaustFX(FXColor.Orange, position + shotSealPoints[0], new SFPoint((sfloat)0, (sfloat)20)), true);
+                                    bManager.CreateExhaust(new ExhaustFX(FXColor.Orange, position + shotSealPoints[1], new SFPoint((sfloat)0, (sfloat)20)), true);
+                                    break;
+                                case 1:
+                                    shotSealed[1] = -1;
+                                    bManager.CreateExhaust(new ExhaustFX(FXColor.Orange, position + shotSealPoints[1], directionCache), true);
+                                    break;
+                                case 2:
+                                    shotSealed[0] = -1;
+                                    bManager.CreateExhaust(new ExhaustFX(FXColor.Orange, position + shotSealPoints[0], directionCache), true);
+                                    break;
+                                case 3:
+                                    List<SFPoint> directs = Fan(directionCache, 7, (sfloat)(0.05) * sfloat.FromRaw(0x40490fdb));
+                                    foreach (SFPoint shootTo in directs)
+                                        bManager.CreateExhaust(new ExhaustFX(FXColor.Orange, position + shotSealPoints[5], shootTo), true);
+                                    break;
                             }
                         }
                     }
                     else
                     {
-                        if (shotSealed[0] <= 0) shotSealed[0] = -1;
-                        if (shotSealed[1] <= 0) shotSealed[1] = -1;
-                        if (shotSealed[0] <= 0 && shotSealed[1] <= 0) directionCache = new SFPoint((sfloat)0, (sfloat)20);
-                        else if (shotSealed[0] <= 0) directionCache = (player.GetSFPosition() - (position + shotSealPoints[0])).Normalized() * (sfloat)20;
-                        else if (shotSealed[1] <= 0) directionCache = (player.GetSFPosition() - (position + shotSealPoints[1])).Normalized() * (sfloat)20;
-                        else directionCache = (player.GetSFPosition() - (position + shotSealPoints[5])).Normalized() * (sfloat)20;
+                        special = 0;
+                        if (shotSealed[0] > 0) special += 1;
+                        if (shotSealed[1] > 0) special += 2;
+
+                        switch (special)
+                        {
+                            case 0:
+                                directionCache = new SFPoint((sfloat)0, (sfloat)20);
+                                break;
+                            case 1:
+                                directionCache = (player.GetSFPosition() - (position + shotSealPoints[1])).Normalized() * (sfloat)20;
+                                break;
+                            case 2:
+                                directionCache = (player.GetSFPosition() - (position + shotSealPoints[0])).Normalized() * (sfloat)20;
+                                break;
+                            case 3:
+                                directionCache = (player.GetSFPosition() - (position + shotSealPoints[5])).Normalized() * (sfloat)20;
+                                break;
+                        }
                     }
+
+                    GD.Print(shotSealed[0] + " " + shotSealed[1]);
                     break;
                 default:
                     shotSealed[3] = -1;
@@ -433,7 +474,7 @@ public class BossGreatBummer : EnemyBase
         return rtnValue;
     }
 
-    public override bool DamageCheck(GameManager gManager, PlayerController player)
+    public override bool DamageCheck(GameManager gManager, AudioManager aManager, PlayerController player)
     {
         damagedOnThisFrame = false;
         damagable = false;
@@ -514,7 +555,7 @@ public class BossGreatBummer : EnemyBase
                 }
             }
         }
-
+        if (damagedOnThisFrame) aManager.Play("shothit", 3);
         return hp < 1;
     }
 
@@ -526,7 +567,7 @@ public class BossGreatBummer : EnemyBase
         return rtnValue;
     }
 
-    public override List<BulletInfo> Kill(GameManager gManager, EnemyManager eManager, BulletManager bManager, PlayerController player)
+    public override List<BulletInfo> Kill(GameManager gManager, EnemyManager eManager, BulletManager bManager, AudioManager aManager, PlayerController player)
     {
         int multi = 10;
         if (!player.GetFreeX10())
@@ -560,11 +601,10 @@ public class BossGreatBummer : EnemyBase
         gManager.timerOn = false;
 
 
-
-        return RevengeShot(gManager, eManager, bManager, player);
+        return RevengeShot(gManager, eManager, bManager, aManager, player);
     }
 
-    public override List<ExplosionFX> Explosions()
+    public override List<ExplosionFX> Explosions(AudioManager aManager)
     {
         List<SFPoint> offsets;
         SFPoint vel = SFPoint.ZeroSFPoint;
@@ -629,6 +669,7 @@ public class BossGreatBummer : EnemyBase
                 rtnValue.Add(new ExplosionFX(position + offsets[i], vel, decay, timer, 0, i * 6 + 6));
             } 
         }
-            return rtnValue;
+        aManager.Play("expl_large", 3, 3);
+        return rtnValue;
     }
 }

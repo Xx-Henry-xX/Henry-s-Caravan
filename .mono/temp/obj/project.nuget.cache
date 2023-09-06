@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "mBf7oX3zdUL0D04KZrEuxDMXGaxQdw4ih3Fp/uWyLyZ8m9rYR1AbQHjv/wJ3cn83NNcTdNZkhCtKzkUwINGsvg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\geonh\\Documents\\Godot\\Henry's Caravan\\Henry's Caravan.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\geonh\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

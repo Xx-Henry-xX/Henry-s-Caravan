@@ -27,6 +27,7 @@ public class ActionBindingMenu : Node
 	VBoxContainer vBoxContainer;
 	Slider DeadzoneSlider;
 	RichTextLabel DeadzoneLabel;
+	OptionButton WindowSizeBtn;
 
 	public override void _Ready () {
 		base._Ready();
@@ -38,11 +39,19 @@ public class ActionBindingMenu : Node
 		Exit = LastBox.GetNode<Button>("ReturnToTitle");
 		DeadzoneSlider = vBoxContainer.GetNode<Slider>("DeadzoneContainer/Deadzone");
 		DeadzoneLabel = vBoxContainer.GetNode<RichTextLabel>("DeadzoneContainer/DeadzoneLabel");
+		WindowSizeBtn = vBoxContainer.GetNode<OptionButton>("WindowSizeContainer/WindowSize");
 
 		CopyInitialBindingsToRuntimeMemory();
 		LoadControlsFromSave();
 		CreateInputButtons();
-		SetProcessUnhandledInput(false); 
+		SetProcessUnhandledInput(false);
+
+		WindowSizeBtn.AddItem("Fullscreen");
+		WindowSizeBtn.AddItem("Windowed x1");
+		WindowSizeBtn.AddItem("Windowed x2");
+		WindowSizeBtn.AddItem("Windowed x3");
+		WindowSizeBtn.AddItem("Windowed x4");
+		WindowSizeBtn.Select(3);
 	}
 
 	public static string EventSimpleText(InputEvent e){		
@@ -250,8 +259,20 @@ public class ActionBindingMenu : Node
 		GetTree().ChangeScene("res://Scenes/Title.tscn");
 	}
 
-	private void GoToTest()
+	private void _on_VSync_toggled(bool enabled)
     {
-
+		OS.VsyncEnabled = enabled;
     }
+
+	private void _on_WindowSize_item_selected(int idx)
+    {
+		if (idx == 0)
+        {
+			OS.WindowSize = new Vector2(240, 320);
+			OS.WindowFullscreen = true;
+			return;
+		}
+		OS.WindowSize = new Vector2(240, 320) * idx;
+		OS.WindowFullscreen = false;
+	}
 }
