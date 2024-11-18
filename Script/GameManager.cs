@@ -91,7 +91,7 @@ public class GameManager : Node2D
 
     public override void _PhysicsProcess(float delta)
     {
-        if (Input.IsActionJustPressed("ui_cancel"))
+        if (Input.IsActionJustPressed("reset"))
         {
             GetTree().ChangeScene("res://Scenes/Title.tscn");
             playing = false;
