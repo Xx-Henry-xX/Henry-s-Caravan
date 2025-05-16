@@ -124,6 +124,7 @@ reset={
 [mono]
 
 runtime/unhandled_exception_policy=1
+project/assembly_name="Henry's Caravan"
 profiler/enabled=true
 
 [physics]
